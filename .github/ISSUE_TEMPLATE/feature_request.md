@@ -1,7 +1,7 @@
 ---
-name: Feature request
-about: Got a great idea to make Pester better? Suggest a feature or enhancement 
-title: 'My feature request title'
+name: Feature Request/Idea 💡
+about: Got a great idea to make Pester better? Submit a suggestion 
+title: 'My amazing idea title'
 labels: ''
 assignees: ''
 
@@ -21,9 +21,9 @@ Good ideas are always welcome and there's no commitment to implement it yourself
 
 ## Summary of the feature request
 
-<!-- 
+<!--  A clear and concise description of your idea.
 
-A clear and concise description of your idea. What problem do you want to solve?
+What problem do you want to solve?
 
 As a user I'd like to be able to get X by doing Y. This would be very useful in situations like Z.
 

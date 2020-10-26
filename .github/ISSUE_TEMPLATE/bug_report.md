@@ -1,6 +1,6 @@
 ---
-name: Bug report
-about: Report bugs and unexpected behavior
+name: Bug Report 🐛
+about: Report erros and unexpected behavior
 title: 'My descriptive bug title'
 labels: ''
 assignees: ''
@@ -11,11 +11,11 @@ assignees: ''
 
 Thank you for using Pester!
 
-Please be aware that Pester version 3.4.0 - which is shipped with Windows 10 and Windows Server 2016 - is not supported anymore. Please update to the latest version.
+Please be aware that Pester version 3.4.0 - which is shipped with Windows 10 and Windows Server 2016 - is not supported anymore.
 
 - Please update Pester and retest your code before submitting a bug report. See [Installation and update guide](https://pester.dev/docs/introduction/installation).
 - Search for existing issues.
-- Pester 5 introduced breaking changes and some features were removed or are not migrated yet. See [Breaking changes](https://github.com/pester/Pester#breaking-changes)
+- Pester 5 introduced breaking changes and some features were removed or are not yet migrated. See [Breaking changes](https://github.com/pester/Pester#breaking-changes)
 
 -->
 
@@ -24,7 +24,7 @@ Please be aware that Pester version 3.4.0 - which is shipped with Windows 10 and
 
 ## Describe your environment
 
-<!-- Please provide the output of a code provided below.
+<!--Please provide the output of a code provided below.
 
 Operating System, Pester version, and PowerShell version:
 
@@ -36,21 +36,19 @@ $bugReport = &{
 }
 $bugReport
 $bugReport | clip
-
 -->
 
 ## Steps to reproduce
 
-<!-- 
+<!-- Provide steps and/or sample code to reproduce the issue.
 
-Provide steps and/or sample code to reproduce the issue. Try to make it as concise as possible, removing irrelevant steps/code and providing sample data where possible. This will enable us to help you faster.
+Try to make it as concise as possible, removing irrelevant steps/code and providing sample data where possible. This will enable us to help you faster.
 
 Tip: Placing Powershell code in a codeblock like below makes it more readable.
 
 ```powershell
     #My code
 ```
-
 -->
 
 ## Expected Behavior
@@ -61,12 +59,10 @@ Tip: Placing Powershell code in a codeblock like below makes it more readable.
 
 <!-- What happens instead of the expected behavior.. -->
 
-## Possible Solution
+## Possible Solution?
 
-<!--
+<!-- Have a solution in mind?
 
-Have a solution in mind? Bug fix pull requests are always welcome.
-
-https://pester.dev/docs/contributing/introduction has detailed instructions on how to contribute.
+Bug fix pull requests are always welcome. See https://pester.dev/docs/contributing/introduction has detailed instructions on how to contribute.
 
 -->
