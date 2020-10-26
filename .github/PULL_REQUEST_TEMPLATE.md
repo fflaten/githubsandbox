@@ -21,11 +21,11 @@ If your pull request integrates Pester with another system, please tell us how t
 - [ ] PR has meaning title
 - [ ] Summary describes changes
 - [ ] PR is ready to be merge
-  - If not, use the arrow next to `Create Pull Request` to mark it as a draft. PR can be marked `Ready for review` later.
+  - If not, use the arrow next to `Create Pull Request` to mark it as a draft. PR can be marked `Ready for review` when it's ready.
 - [ ] All tests pass
     - Run `./build.ps1 -Clean; ./test.ps1 -NoBuild`. Use  a new PowerShell process when C# code is changed.
-- [ ] Tests are added/update (if required)
-- [ ] Documentation is updated/added (if required)
+- [ ] Tests are added/update *(if required)*
+- [ ] Documentation is updated/added *(if required)*
 
 <!--
 
