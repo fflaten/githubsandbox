@@ -1,0 +1,4 @@
+contact_links:
+    - name: Usage questions?
+      url: https://pester.dev/docs/contributing/introduction#where-to-get-support
+      about: There are mulitple communities available to help you with usage questions. Check out this link for our recommendations before opening a general issue.

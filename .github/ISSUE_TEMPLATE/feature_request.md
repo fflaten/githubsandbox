@@ -1,20 +1,38 @@
 ---
 name: Feature request
-about: Suggest an idea for this project
-title: ''
+about: Got a great idea to make Pester better? Suggest a feature or enhancement 
+title: 'My feature request title'
 labels: ''
 assignees: ''
 
 ---
 
-**Is your feature request related to a problem? Please describe.**
-A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
+<!--
 
-**Describe the solution you'd like**
-A clear and concise description of what you want to happen.
+Thank you for using Pester!
 
-**Describe alternatives you've considered**
-A clear and concise description of any alternative solutions or features you've considered.
+Good ideas are always welcome and there's no commitment to implement it yourself, but feel free to contribute after an initial discussion. 
 
-**Additional context**
-Add any other context or screenshots about the feature request here.
+- Try out the latest version of Pester - maybe your request is already available. See [Installation and update guide](https://pester.dev/docs/introduction/installation).
+- See [README](https://github.com/pester/Pester) for the latest updates and newest features.
+- Search for existing issues to matches your idea. A popular issue/request is more likely to be prioritized.
+
+-->
+
+## Summary of the feature request
+
+<!-- 
+
+A clear and concise description of your idea. What problem do you want to solve?
+
+As a user I'd like to be able to get X by doing Y. This would be very useful in situations like Z.
+
+-->
+
+## How should it work? (optional)
+
+<!--
+
+Do you already have an idea of how this experience should be. Feel free to provide a short demo of usage and expected results.
+
+-->
