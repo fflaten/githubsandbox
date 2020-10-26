@@ -1,6 +1,6 @@
 ---
-name: 🐛 Problem with command help documenation?
-about: Help us find outdated and problematic command help in PowerShell or in Command Reference on https://pester.dev/docs
+name: 📖 Problem with Command Reference documentation?
+about: Outdated docs in function help or Command Reference on https://pester.dev? Report them here
 title: 'My documentation issue'
 labels: 'Documentation'
 assignees: ''
@@ -15,13 +15,13 @@ Known issue: Documentation is mostly out of date for all commands. See [Breaking
 
 Command Reference documentation on the website are generated from comment-based help in the functions and should be reported here.
 
-All other documentation issues on https://pester.dev/docs should be reported in the docs-repo.
+All other documentation issues on https://pester.dev should be reported in the docs-repo.
 
 -->
 
 ## Location
 
-<!-- *Help us find the relevant help location* -->
+<!-- Help us find the relevant help location -->
 
 - Pester version:
 - Function: 
