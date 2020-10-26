@@ -1,5 +1,5 @@
 ---
-name: Bug Report 🐛
+name: 🐛 Bug Report
 about: Report erros and unexpected behavior
 title: 'My descriptive bug title'
 labels: ''
@@ -9,7 +9,7 @@ assignees: ''
 
 <!--
 
-Thank you for using Pester!
+Thank you for using Pester and taking the time to report this issue!
 
 Please be aware that Pester version 3.4.0 - which is shipped with Windows 10 and Windows Server 2016 - is not supported anymore.
 
@@ -24,7 +24,7 @@ Please be aware that Pester version 3.4.0 - which is shipped with Windows 10 and
 
 ## Describe your environment
 
-<!--Please provide the output of a code provided below.
+<!-- Please provide the output of a code provided below.
 
 Operating System, Pester version, and PowerShell version:
 
