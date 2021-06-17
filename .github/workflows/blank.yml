@@ -33,3 +33,4 @@ jobs:
           Write-Host "::error file=app.js,line=1,col=6::this is bad, much error"
           Write-Host "::error file=app.js,line=1,col=7::this is bad, much error"
           Write-Host "::endgroup::"
+        shell: pwsh
