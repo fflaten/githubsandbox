@@ -1,2 +1,2 @@
 # githubsandbox
-Demo repo for testing GitHub features
+Demo Demo repo for testing GitHub features
