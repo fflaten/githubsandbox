@@ -1,6 +1,6 @@
 name: 🐛 Bug Report
 description: Report errors or unexpected behavior
-title: ''
+title: ""
 labels: []
 body:
 - type: markdown
