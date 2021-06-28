@@ -32,9 +32,10 @@ body:
 - type: textarea
   attributes:
     label: Steps To Reproduce
-    description: Provide steps and/or sample code to reproduce the issue.
-    placeholder: |
+    description: |
+      Provide steps and/or sample code to reproduce the issue.
       Try to make it as concise as possible, removing irrelevant steps/code and providing sample data where possible. This will enable us to help you faster.
+    placeholder: |
       Tip: Placing Powershell code in a codeblock like below makes it more readable.
       ```powershell
           #My code
