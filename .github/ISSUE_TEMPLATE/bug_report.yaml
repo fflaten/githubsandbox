@@ -28,7 +28,7 @@ body:
       You can open the URL in a browser to view the code before running it.
     render: markdown
   validations:
-    required: false
+    required: true
 - type: textarea
   attributes:
     label: Steps To Reproduce
@@ -40,6 +40,8 @@ body:
       ```powershell
           #My code
       ```
+  validations:
+    required: true
 - type: textarea
   attributes:
     label: Expected Behavior
