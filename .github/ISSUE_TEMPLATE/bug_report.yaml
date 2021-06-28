@@ -25,7 +25,6 @@ body:
       (Invoke-WebRequest -Uri "https://git.io/JTinj" -UseBasicParsing).Content | Invoke-Expression
 
       The script collects Operating System, Pester version and PowerShell version. You can open the URL in a browser to view the code before running it.
-    render: markdown
   validations:
     required: true
 - type: textarea
