@@ -20,8 +20,8 @@ body:
     label: Location
     description: "Help us identify which documentation to update"
     value: |
-      - Pester version:
-      - Function:
+      - Pester version: 
+      - Function: 
 - type: textarea
   attributes:
     label: General summary of the issue
