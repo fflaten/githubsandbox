@@ -1,6 +1,6 @@
 name: 📖 Problem with Command Reference documentation?
 description: Outdated docs in function help or Command Reference on https://pester.dev? Report them here
-labels: ['Documentation']
+labels: Documentation
 body:
 - type: markdown
   attributes:
