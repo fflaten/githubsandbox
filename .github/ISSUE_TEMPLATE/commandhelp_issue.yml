@@ -7,8 +7,7 @@ body:
     value: |
       Thank you for using Pester and taking the time to report this issue!
       
-      Command Reference-documentation on the website are generated from comment-based help in the functions and should be reported here.
-      All other documentation issues on https://pester.dev should be reported in the [docs-repo](https://github.com/pester/docs).
+      Command Reference-documentation on the website are generated from comment-based help in the functions and should be reported here. All other documentation issues on https://pester.dev should be reported in the [docs-repo](https://github.com/pester/docs).
 - type: checkboxes
   attributes:
     label: Checklist
@@ -21,6 +20,11 @@ body:
     label: Location
     description: "Help us identify which documentation to update"
     placeholder: |
+      - Pester version:
+      - Function:
+      
+      - Website?
+    value: |
       - Pester version:
       - Function:
 - type: textarea
