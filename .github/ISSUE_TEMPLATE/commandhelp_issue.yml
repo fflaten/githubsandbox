@@ -19,11 +19,6 @@ body:
   attributes:
     label: Location
     description: "Help us identify which documentation to update"
-    placeholder: |
-      - Pester version:
-      - Function:
-      
-      - Website?
     value: |
       - Pester version:
       - Function:
