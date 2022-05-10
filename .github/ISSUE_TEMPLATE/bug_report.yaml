@@ -27,11 +27,9 @@ body:
     label: Describe your environment
     description: |
       Please provide the output of this script:
-      ```powershell
-      (Invoke-WebRequest -Uri "https://git.io/JTinj" -UseBasicParsing).Content | Invoke-Expression
-      ```
+      `(Invoke-WebRequest -Uri "https://git.io/JTinj" -UseBasicParsing).Content | Invoke-Expression`
 
-      The script collects Operating System, Pester version and PowerShell version. You can open the URL in a browser to view the code before running it.
+      The script collects Operating System, Pester version and PowerShell version. You can [open the URL](https://git.io/JTinj) in a browser to view the code before running it.
   validations:
     required: true
 - type: textarea
