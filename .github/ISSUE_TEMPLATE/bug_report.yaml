@@ -63,6 +63,6 @@ body:
     label: Possible Solution?
     description: |
       Have a solution in mind?
-      Bug fix pull requests are always welcome. See https://pester.dev/docs/contributing/introduction has detailed instructions on how to contribute.
+      Bug fix pull requests are always welcome. See https://pester.dev/docs/contributing/introduction for detailed instructions on how to contribute.
   validations:
     required: false
