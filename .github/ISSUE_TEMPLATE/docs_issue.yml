@@ -1,6 +1,6 @@
 name: DOCS 🐛 Documentation issue
 description: Report an issue with the documentation at https://pester.dev
-labels: 
+labels: []
 body:
 - type: markdown
   attributes:

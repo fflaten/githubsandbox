@@ -1,6 +1,6 @@
 name: DOCS 💡 Request for new documentation
 description: Missing something at https://pester.dev? Please suggest it
-labels: 
+labels: []
 body:
 - type: markdown
   attributes:
