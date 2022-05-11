@@ -16,6 +16,16 @@ body:
       required: true
     - label: "I have searched the existing issues. See [open documentation issues](https://github.com/pester/Pester/issues?q=is%3Aissue+label%3ADocumentation+is%3Aopen)"
       required: true
+- type: dropdown
+  attributes:
+    label: Location
+    description: Did you find the issue in module help or on the website?
+    options:
+      - Pester (latest)
+      - Web (https://pester.dev)
+      - Both
+  validations:
+    required: true
 - type: input
   attributes:
     label: Function name
