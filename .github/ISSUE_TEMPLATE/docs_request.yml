@@ -20,6 +20,7 @@ body:
 - type: textarea
   attributes:
     label: Summary of the request
+    description: Describe what you feel is missing
   validations:
     required: true
 - type: dropdown

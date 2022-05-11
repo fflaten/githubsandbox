@@ -27,6 +27,11 @@ body:
     label: Summary of the issue
   validations:
     required: true
+- type: markdown
+  attributes:
+    value: |
+      Feel free to also submit a PR if you want to improve the docs yourself. Each website has a "Edit this page?" shortcut at the bottom which takes you to the corresponding source on GitHub.
+      If not, you may add any ideas you might have for the fix in the field below.
 - type: textarea
   attributes:
-    label: Suggestied fix?
+    label: Suggested fix?
