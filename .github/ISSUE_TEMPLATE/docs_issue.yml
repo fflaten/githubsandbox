@@ -24,7 +24,7 @@ body:
     required: true
 - type: textarea
   attributes:
-    label: Summary of the issue
+    label: What is the issue?
   validations:
     required: true
 - type: markdown
