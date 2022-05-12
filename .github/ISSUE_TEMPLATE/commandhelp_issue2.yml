@@ -24,6 +24,7 @@ body:
       - Pester (latest)
       - Web (https://pester.dev)
       - Both
+      - Other
   validations:
     required: true
 - type: input
