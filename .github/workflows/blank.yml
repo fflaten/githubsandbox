@@ -30,7 +30,7 @@ jobs:
           [Console]::WriteLine("$($PSStyle.Foreground.Red)$str$($PSStyle.Reset)")
         shell: pwsh
 
-      - name: Print multi-line string using host UI
+      - name: Print multi-line string using host UI ansi
         run: |
           $str = @"
           Hello World
@@ -41,7 +41,7 @@ jobs:
           $host.UI.WriteLine("$($PSStyle.Foreground.Red)$str$($PSStyle.Reset)")
         shell: pwsh
 
-      - name: Print multi-line string using host UI
+      - name: Print multi-line string using host UI consolecolor
         run: |
           $oldFg = $host.UI.RawUI.ForegroundColor
           $oldBg = $host.UI.RawUI.BackgroundColor
@@ -58,6 +58,17 @@ jobs:
 
           $host.UI.RawUI.ForegroundColor = $oldFg
           $host.UI.RawUI.BackgroundColor = $oldBg
+        shell: pwsh
+
+      - name: Print multi-line string using host UI consolecolor
+        run: |
+          $str = @"
+          Hello World
+          Again
+          And again
+          "@
+
+          $host.UI.Write("$($PSStyle.Foreground.Red)$str$($PSStyle.Reset)")
         shell: pwsh
 
       - name: Print multi-line string with repeating ANSI
