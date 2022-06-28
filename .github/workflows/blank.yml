@@ -19,18 +19,36 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: Get-ChildItem
+      - name: Print multi-line string
+        run: |
+          $str = @"
+          Hello World
+          Again
+          And again
+          "@
+
+          [Console]::WriteLine("$($PSStyle.Foreground.Red)$str$($PSStyle.Reset)")
         shell: pwsh
 
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
+      - name: Print multi-line string with repeating ANSI
         run: |
-          [System.Console]::WriteLine("::warning file=README.md,line=2,col=1::this is my first warning")
-          [System.Console]::WriteLine("::error file=app.js,line=1,col=5::this is bad, much error")
-          [System.Console]::WriteLine("::group::Some noisy errors")
-          [System.Console]::WriteLine("::error file=app.js,line=1,col=6::this is bad, much error")
-          [System.Console]::WriteLine("::error file=app.js,line=1,col=7::this is bad, much error")
-          [System.Console]::WriteLine("::endgroup::")
+          $str = @"
+          $($PSStyle.Foreground.Red)Hello World
+          $($PSStyle.Foreground.Red)Again
+          And again
+          "@
+
+          [Console]::WriteLine("$str$($PSStyle.Reset)")
+        shell: pwsh
+
+      - name: Print multi-line string with split
+        run: |
+          $str = @"
+          Hello World
+          Again
+          And again
+          "@
+
+          $lines = $str -split [Environment]::NewLine
+          foreach ($line in $lines) { [Console]::WriteLine("$($PSStyle.Foreground.Red)$line$($PSStyle.Reset)") }
         shell: pwsh
