@@ -30,6 +30,17 @@ jobs:
           [Console]::WriteLine("$($PSStyle.Foreground.Red)$str$($PSStyle.Reset)")
         shell: pwsh
 
+      - name: Print multi-line string using host UI
+        run: |
+          $str = @"
+          Hello World
+          Again
+          And again
+          "@
+
+          $host.UI.WriteLine("$($PSStyle.Foreground.Red)$str$($PSStyle.Reset)")
+        shell: pwsh
+
       - name: Print multi-line string with repeating ANSI
         run: |
           $str = @"
