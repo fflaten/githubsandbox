@@ -41,6 +41,25 @@ jobs:
           $host.UI.WriteLine("$($PSStyle.Foreground.Red)$str$($PSStyle.Reset)")
         shell: pwsh
 
+      - name: Print multi-line string using host UI
+        run: |
+          $oldFg = $host.UI.RawUI.ForegroundColor
+          $oldBg = $host.UI.RawUI.BackgroundColor
+          $host.UI.RawUI.ForegroundColor = 'Red'
+          $host.UI.RawUI.BackgroundColor = 'Yellow'
+
+          $str = @"
+          Hello World
+          Again
+          And again
+          "@
+
+          $host.UI.WriteLine("$str")
+
+          $host.UI.RawUI.ForegroundColor = $oldFg
+          $host.UI.RawUI.BackgroundColor = $oldBg
+        shell: pwsh
+
       - name: Print multi-line string with repeating ANSI
         run: |
           $str = @"
