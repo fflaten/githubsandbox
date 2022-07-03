@@ -1,0 +1,30 @@
+name: Trigger docs update
+on: release
+jobs:
+  auth-as-app:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Send greeting
+      run: echo "Hello ${{ github.event.inputs.name }}"
+    - name: auth-app
+      # You may pin to the exact commit or the version.
+      # uses: getsentry/action-github-app-token@38a3ce582e170ddfe8789f509597c6944f2292a9
+      uses: getsentry/action-github-app-token@v1.0.6
+      with:
+        # GitHub App ID
+        app_id: 216860
+        # Private key for the GitHub App
+        private_key: ${{ secrets.APP_PRIVATE_KEY }}
+        # Scope of installation account
+        scope: repo
+    - name: Workflow Dispatch
+      # You may pin to the exact commit or the version.
+      # uses: benc-uk/workflow-dispatch@4c044c1613fabbe5250deadc65452d54c4ad4fc7
+      uses: benc-uk/workflow-dispatch@v1
+      with:
+        # Name or ID of workflow to run
+        workflow: blank
+        # GitHub token with repo write access, can NOT use secrets.GITHUB_TOKEN, see readme
+        token: ${{ steps.auth-app.outputs.token }}
+        # Repo owner & name, slash separated, only set if invoking a workflow in a different repo
+        repo: fflaten/githubsandbox
