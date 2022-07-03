@@ -23,7 +23,7 @@ jobs:
     - name: Workflow Dispatch
       env:
         GITHUB_TOKEN: ${{ steps.app-auth.outputs.token }}
-      run: gh workflow run blank -R fflaten/githubsandbox
+      run: gh workflow run CIdemo -R fflaten/githubsandbox
 #     - name: Workflow Dispatch
 #       # You may pin to the exact commit or the version.
 #       # uses: benc-uk/workflow-dispatch@4c044c1613fabbe5250deadc65452d54c4ad4fc7
