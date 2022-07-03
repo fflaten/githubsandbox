@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
   
 jobs:
-  auth-as-app:
+  trigger-docs-PR:
     runs-on: ubuntu-latest
     steps:
     - name: Send greeting
@@ -27,6 +27,6 @@ jobs:
         # Name or ID of workflow to run
         workflow: blank
         # GitHub token with repo write access, can NOT use secrets.GITHUB_TOKEN, see readme
-        token: ${{ steps.auth-app.outputs.token }}
+        token: ${{ steps.trigger-docs-PR.outputs.token }}
         # Repo owner & name, slash separated, only set if invoking a workflow in a different repo
-        # repo: fflaten/githubsandbox
+        repo: fflaten/githubsandbox
