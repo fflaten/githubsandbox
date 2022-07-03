@@ -10,7 +10,8 @@ jobs:
     steps:
     - name: Send greeting
       run: echo "Hello ${{ github.event.inputs.name }}"
-    - name: auth-app
+    - name: Authenticate as app
+      id: app-auth
       # You may pin to the exact commit or the version.
       # uses: getsentry/action-github-app-token@38a3ce582e170ddfe8789f509597c6944f2292a9
       uses: getsentry/action-github-app-token@v1.0.6
@@ -27,6 +28,6 @@ jobs:
         # Name or ID of workflow to run
         workflow: blank
         # GitHub token with repo write access, can NOT use secrets.GITHUB_TOKEN, see readme
-        token: ${{ steps.trigger-docs-PR.outputs.token }}
+        token: ${{ steps.app-auth.outputs.token }}
         # Repo owner & name, slash separated, only set if invoking a workflow in a different repo
         repo: fflaten/githubsandbox
