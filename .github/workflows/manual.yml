@@ -18,7 +18,7 @@ jobs:
       uses: getsentry/action-github-app-token@v1.0.6
       with:
         # GitHub App ID
-        app_id: 216860
+        app_id: ${{ secrets.APP_ID }}
         # Private key for the GitHub App
         private_key: ${{ secrets.APP_PRIVATE_KEY }}
     - name: Workflow Dispatch
