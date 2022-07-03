@@ -29,4 +29,4 @@ jobs:
         # GitHub token with repo write access, can NOT use secrets.GITHUB_TOKEN, see readme
         token: ${{ steps.auth-app.outputs.token }}
         # Repo owner & name, slash separated, only set if invoking a workflow in a different repo
-        repo: fflaten/githubsandbox
+        # repo: fflaten/githubsandbox
