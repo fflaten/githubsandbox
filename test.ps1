@@ -20,7 +20,9 @@ Describe Test-EvenNumber {
         ) {
             param($Number)
             Test-EvenNumbers -Number $Number | Should -BeTrue
-            Write-Host 'hello world'
+            Write-Host 'hello worlds'
         }
     }
 }
+
+dir | out-null
