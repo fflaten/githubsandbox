@@ -1,0 +1,76 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+  branches:
+    include:
+      - main
+  paths:
+    exclude:
+      - .vscode/*
+
+stages:
+  - stage: Build
+    pool:
+      vmImage: windows-2019
+    jobs:
+      - job: build
+        workspace:
+          clean: all
+        timeoutInMinutes: 3
+        steps:
+          - checkout: self
+            fetchDepth: 1
+          - publish: $(Build.SourcesDirectory)
+            artifact: all
+
+  - stage: Analyze
+    pool:
+      vmImage: windows-2019
+    dependsOn: Build
+    jobs:
+      - job: analyze
+        workspace:
+          clean: all
+        timeoutInMinutes: 3
+        steps:
+          - checkout: none
+          - task: DownloadPipelineArtifact@2
+            inputs:
+              buildType: 'current'
+              artifactName: 'all'
+              targetPath: '$(Build.SourcesDirectory)'
+          - task: PowerShell@2
+            displayName: 'Install required modules'
+            inputs:
+              targetType: 'inline'
+              script: Install-Module -Name ConvertToSARIF -Force
+          - task: PowerShell@2
+            displayName: 'Run PSScriptAnalyzer'
+            continueOnError: true
+            inputs:
+              targetType: 'inline'
+              script: |
+                $sarifName = 'results.sarif'
+
+                Get-ChildItem -Path ./ -Recurse -File -Filter *.ps1 |
+                Invoke-ScriptAnalyzer |
+                ConvertTo-SARIF -FilePath $sarifName
+
+                # Make paths relative
+                $pathToRemove = 'file:///$(Build.SourcesDirectory)' -replace '\\', '/'
+                $json = (Get-Content $sarifName -Raw).Replace($pathToRemove, '')
+                
+                # Add repo-reference to enable deeplinks to source
+                $json = $json -replace '(?<=runs":\[\{)', '"versionControlProvenance": [{"repositoryUri": "$(Build.Repository.Uri)", "revisionId": "$(Build.SourceVersion)"}],'
+                $json | Set-Content $sarifName
+
+                # | Format-List RuleName, Severity, ScriptPath, Line, Column, Message
+              workingDirectory: '$(Build.SourcesDirectory)'
+          - task: PublishBuildArtifacts@1
+            displayName: Publish SARIF Artifact from PSSA
+            inputs:
+              ArtifactName: CodeAnalysisLogs
+              PathtoPublish: $(System.DefaultWorkingDirectory)/results.sarif
