@@ -61,7 +61,7 @@ stages:
               cacheHitVar: PSCacheUsed
           - task: PowerShell@2
             displayName: 'Download ConvertToSARIF module'
-            condition: eq(variables.PSCacheUsed, 'true')
+            condition: eq(variables.PSCacheUsed, 'false')
             inputs:
               targetType: 'inline'
               script: Save-Module -Name ConvertToSARIF -RequiredVersion 1.0.0 -Path '${{ variables.psModuleFolder }}' -Force
