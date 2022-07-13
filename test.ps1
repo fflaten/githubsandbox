@@ -7,6 +7,7 @@ BeforeAll {
             $Number
         )
 
+        Write-Host "Number is: $Number"
         $Number % 2 -eq 0
     }
 }
