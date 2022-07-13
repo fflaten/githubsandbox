@@ -11,7 +11,7 @@ on:
 jobs:
   build:
     name: PSScriptAnalyzer Scan
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
         # Checkout the repository to the GitHub Actions runner
       - name: Checkout code
