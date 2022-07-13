@@ -15,6 +15,10 @@ stages:
   - stage: Build
     pool:
       vmImage: windows-2019
+    variables:
+      DOTNET_SKIP_FIRST_TIME_EXPERIENCE: 1
+      DOTNET_CLI_TELEMETRY_OPTOUT: 1
+      DOTNET_GENERATE_ASPNET_CERTIFICATE: false
     jobs:
       - job: build
         workspace:
@@ -24,6 +28,8 @@ stages:
           - checkout: none
             fetchDepth: 1
           - powershell: git clone https://github.com/pester/Pester.git
+          - powershell: dotnet restore "./src/csharp/Pester.sln"
+            workingDirectory: $(Build.SourcesDirectory)/Pester
           - powershell: ./build.ps1 -Clean -Inline
             workingDirectory: $(Build.SourcesDirectory)/Pester
           - publish: $(Build.SourcesDirectory)/Pester
