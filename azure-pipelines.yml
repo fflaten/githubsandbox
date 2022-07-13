@@ -71,10 +71,11 @@ stages:
             inputs:
               targetType: 'inline'
               script: |
+                # add module cache to psmodulepath
                 $env:PSModulePath = '${{ variables.psModuleFolder }}', $Env:PSModulePath -join [System.IO.Path]::PathSeparator
                 Import-Module PSScriptAnalyzer
                 Import-Module ConvertToSARIF
-                $sarifName = 'results.sarif'
+                $sarifName = 'pssa-results.sarif'
 
                 Get-ChildItem -Path ./src -Filter *.ps1 -Recurse -File |
                 Invoke-ScriptAnalyzer |
@@ -91,7 +92,7 @@ stages:
                 # | Format-List RuleName, Severity, ScriptPath, Line, Column, Message
               workingDirectory: '$(Build.SourcesDirectory)'
           - task: PublishBuildArtifacts@1
-            displayName: Publish SARIF Artifact from PSSA
+            displayName: Publish code analysis artifact from PSSA
             inputs:
               ArtifactName: CodeAnalysisLogs
-              PathtoPublish: $(System.DefaultWorkingDirectory)/results.sarif
+              PathtoPublish: $(System.DefaultWorkingDirectory)/pssa-results.sarif
