@@ -21,9 +21,12 @@ stages:
           clean: all
         timeoutInMinutes: 3
         steps:
-          - checkout: self
+          - checkout: none
             fetchDepth: 1
-          - publish: $(Build.SourcesDirectory)
+          - powershell: git clone https://github.com/pester/Pester.git
+          - powershell: ./build.ps1 -Clean -Inline
+            workingDirectory: $(Build.SourcesDirectory)/Pester
+          - publish: $(Build.SourcesDirectory)/Pester
             artifact: all
 
   - stage: Analyze
@@ -55,7 +58,7 @@ stages:
               script: |
                 $sarifName = 'results.sarif'
 
-                Get-ChildItem -Path ./ -Recurse -File -Filter *.ps1 |
+                Get-ChildItem -Path ./src -Filter *.ps1 -Recurse -File |
                 Invoke-ScriptAnalyzer |
                 ConvertTo-SARIF -FilePath $sarifName
 
@@ -68,7 +71,7 @@ stages:
                 $json | Set-Content $sarifName
 
                 # | Format-List RuleName, Severity, ScriptPath, Line, Column, Message
-              workingDirectory: '$(Build.SourcesDirectory)'
+              workingDirectory: '$(Build.SourcesDirectory)/Pester'
           - task: PublishBuildArtifacts@1
             displayName: Publish SARIF Artifact from PSSA
             inputs:
