@@ -38,6 +38,8 @@ stages:
   - stage: Analyze
     pool:
       vmImage: windows-latest
+    variables:
+      psModuleFolder: '$(System.DefaultWorkingDirectory)/modules'
     dependsOn: Build
     jobs:
       - job: analyze
@@ -51,17 +53,27 @@ stages:
               buildType: 'current'
               artifactName: 'all'
               targetPath: '$(Build.SourcesDirectory)'
+          - task: Cache@2
+            displayName: Cache ConvertToSARIF Module
+            inputs:
+              key:  psmodule | ConvertToSARIF1.0.0
+              path: ${{ variables.psModuleFolder }}
+              cacheHitVar: PSCacheUsed
           - task: PowerShell@2
-            displayName: 'Install required modules'
+            displayName: 'Download ConvertToSARIF module'
+            condition: eq(variables.PSCacheUsed, 'true')
             inputs:
               targetType: 'inline'
-              script: Install-Module -Name ConvertToSARIF -Force
+              script: Save-Module -Name ConvertToSARIF -RequiredVersion 1.0.0 -Path '${{ variables.psModuleFolder }}' -Force
           - task: PowerShell@2
             displayName: 'Run PSScriptAnalyzer'
             continueOnError: true
             inputs:
               targetType: 'inline'
               script: |
+                $env:PSModulePath = '${{ variables.psModuleFolder }}', $Env:PSModulePath -join [System.IO.Path]::PathSeparator
+                Import-Module PSScriptAnalyzer
+                Import-Module ConvertToSARIF
                 $sarifName = 'results.sarif'
 
                 Get-ChildItem -Path ./src -Filter *.ps1 -Recurse -File |
@@ -77,7 +89,7 @@ stages:
                 $json | Set-Content $sarifName
 
                 # | Format-List RuleName, Severity, ScriptPath, Line, Column, Message
-              workingDirectory: '$(Build.SourcesDirectory)/Pester'
+              workingDirectory: '$(Build.SourcesDirectory)'
           - task: PublishBuildArtifacts@1
             displayName: Publish SARIF Artifact from PSSA
             inputs:
