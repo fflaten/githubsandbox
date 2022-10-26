@@ -19,6 +19,7 @@ stages:
       DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
       DOTNET_CLI_TELEMETRY_OPTOUT: true
       DOTNET_GENERATE_ASPNET_CERTIFICATE: false
+      DOTNET_NOLOGO: true
     jobs:
       - job: build
         workspace:
@@ -28,7 +29,7 @@ stages:
           - checkout: none
             fetchDepth: 1
           - powershell: git clone https://github.com/pester/Pester.git
-          - powershell: dir env:\dotnet* | ft -AutoSize; dotnet dev-certs https -c; dotnet restore "./src/csharp/Pester.sln"; dotnet dev-certs https -c
+          - powershell: dir env:\dotnet* | ft -AutoSize; dotnet restore "./src/csharp/Pester.sln";
             workingDirectory: $(Build.SourcesDirectory)/Pester
           - powershell: ./build.ps1 -Clean -Inline
             workingDirectory: $(Build.SourcesDirectory)/Pester
