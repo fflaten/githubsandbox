@@ -31,7 +31,9 @@ stages:
           - powershell: git clone https://github.com/pester/Pester.git
           - powershell: dir env:\dotnet* | ft -AutoSize; dotnet restore "./src/csharp/Pester.sln";
             workingDirectory: $(Build.SourcesDirectory)/Pester
-          - powershell: ./build.ps1 -Clean -Inline
+          - powershell: |
+              "Running .NET SDK v$(dotnet --version)"
+              ./build.ps1 -Clean -Inline
             workingDirectory: $(Build.SourcesDirectory)/Pester
           - publish: $(Build.SourcesDirectory)/Pester
             artifact: all
