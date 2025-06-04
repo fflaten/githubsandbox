@@ -4,13 +4,13 @@ on:
 
 env:
   NODE_VER: '20.x'
-  ENV_NAME: 'dev'
+  ENV_NAME: 'devNONO'
 
 jobs:
   my_job_env:
     name: "Job using environment variables"
     runs-on: ubuntu-latest
-    #environment: ${{ env.ENV_NAME }}
+    environment: ${{ vars.ENV_STAGING }}
     steps:
       - name: "Setup Node ${{ env.NODE_VER }}"
         uses: actions/setup-node@v4
