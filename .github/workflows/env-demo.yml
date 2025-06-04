@@ -10,7 +10,7 @@ jobs:
   my_job_env:
     name: "Job using environment variables '${{ env.NAME }}'"
     runs-on: ubuntu-latest
-    environment: ${{ env.ENV_NAME }}
+    #environment: ${{ env.ENV_NAME }}
     steps:
       - name: "Setup Node ${{ env.NODE_VER }}"
         uses: actions/setup-node@v4
