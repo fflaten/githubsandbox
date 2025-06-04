@@ -1,0 +1,42 @@
+name: Testing environment variables
+on:
+  workflow_dispatch:
+
+env:
+  NODE_VER: '20.x'
+  ENV_NAME: 'dev'
+
+jobs:
+  my_job_env:
+    name: "Job using environment variables '${{ env.NAME }}'"
+    runs-on: ubuntu-latest
+    environment: ${{ env.ENV_NAME }}
+    steps:
+      - name: "Setup Node ${{ env.NODE_VER }}"
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VER }}
+
+      - name: "Shell test"
+        shell: pwsh
+        run: |
+          Write-Host "Node_VER is '$env:NODE_VER'"
+          Write-Host "Node_VER is '$env:ENV_NAME'"
+
+  my_job_hardcoded:
+    name: "Job using hardcoded env"
+    runs-on: ubuntu-latest
+    environment: 'dev'
+    steps:
+      - name: "Setup Node ${{ env.NODE_VER }}"
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VER }}
+
+      - name: "Shell test"
+        shell: pwsh
+        run: |
+          Write-Host "Node_VER is '$env:NODE_VER'"
+          Write-Host "Node_VER is '$env:ENV_NAME'"
+    
+    
