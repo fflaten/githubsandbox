@@ -8,6 +8,9 @@ env:
 
 jobs:
   my_job_env:
+    env:
+      NODE_VER: '24.x'
+      ENV_NAME: 'dev_nonexist'
     name: "Job using environment variables '${{ env.NAME }}'"
     runs-on: ubuntu-latest
     #environment: ${{ env.ENV_NAME }}
