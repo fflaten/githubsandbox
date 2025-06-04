@@ -8,10 +8,7 @@ env:
 
 jobs:
   my_job_env:
-    env:
-      NODE_VER: '24.x'
-      ENV_NAME: 'dev_nonexist'
-    name: "Job using environment variables '${{ env.NAME }}'"
+    name: "Job using environment variables"
     runs-on: ubuntu-latest
     #environment: ${{ env.ENV_NAME }}
     steps:
@@ -27,7 +24,7 @@ jobs:
           Write-Host "Node_VER is '$env:ENV_NAME'"
 
   my_job_hardcoded:
-    name: "Job using hardcoded env"
+    name: "Job using hardcoded environment"
     runs-on: ubuntu-latest
     environment: 'dev'
     steps:
